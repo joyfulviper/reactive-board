@@ -1,0 +1,11 @@
+spring:
+  r2dbc:
+    url: r2dbc:pool:mysql://localhost:3306/reactive_board
+    username: root
+    password: 1234
+  profiles:
+    include: security
+
+logging:
+  level:
+    org.springframework.r2dbc.core: debug
