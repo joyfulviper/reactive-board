@@ -7,6 +7,8 @@ import org.springframework.r2dbc.core.DatabaseClient;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 
+import java.time.LocalDateTime;
+
 @Repository
 @RequiredArgsConstructor
 public class CustomPostRepositoryImpl implements CustomPostRepository{
@@ -22,7 +24,8 @@ public class CustomPostRepositoryImpl implements CustomPostRepository{
                         .id(row.get("id", Long.class))
                         .title(row.get("title", String.class))
                         .content(row.get("content", String.class))
-                        .authorId(row.get("authorId", Long.class))
+                        .authorId(row.get("author_id", Long.class))
+                        .createdAt(row.get("created_at", LocalDateTime.class))
                         .build())
                 .all();
     }
